@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickSMS - Premium Virtual Numbers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-bolt"></i>
+            <span>QuickSMS</span>
+        </div>
+        <div class="nav-actions">
+            <div class="balance-display" id="balanceDisplay">
+                <i class="fas fa-wallet"></i>
+                <span id="balanceAmount">₹0.00</span>
+            </div>
+            <button class="btn-refresh" onclick="fetchBalance()">
+                <i class="fas fa-sync"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-shield-alt"></i> Secure & Fast
+        </div>
+        <h1>Get Virtual Numbers <br /><span>For Any Service</span></h1>
+        <p>Receive SMS verification codes instantly with our premium virtual numbers</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Panel - Controls -->
+        <div class="panel panel-controls">
+            <div class="panel-header">
+                <h3><i class="fas fa-magic"></i> Get Number</h3>
+            </div>
+
+            <!-- Country Selection -->
+            <div class="form-group">
+                <label><i class="fas fa-globe"></i> Country</label>
+                <select id="countrySelect" class="form-control">
+                    <option value="91">🇮🇳 India (+91)</option>
+                </select>
+            </div>
+
+            <!-- Service Selection -->
+            <div class="form-group">
+                <label><i class="fas fa-server"></i> Service</label>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="serviceSearch" placeholder="Search service..." oninput="filterServices()" />
+                </div>
+                <div id="serviceList" class="service-list">
+                    <!-- Services loaded via JS -->
+                </div>
+            </div>
+
+            <!-- Get Number Button -->
+            <button class="btn-primary" onclick="getNumber()">
+                <i class="fas fa-phone"></i> Get Number
+            </button>
+
+            <div id="loadingIndicator" class="loading hidden">
+                <i class="fas fa-spinner fa-spin"></i> Getting number...
+            </div>
+        </div>
+
+        <!-- Right Panel - Activation Details -->
+        <div class="panel panel-activation">
+            <div class="panel-header">
+                <h3><i class="fas fa-sms"></i> Activation Details</h3>
+                <button class="btn-clear" onclick="clearActivation()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="activationContent">
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No active activation</p>
+                    <span>Get a number to start</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activation History -->
+    <section class="history-section">
+        <div class="history-header">
+            <h3><i class="fas fa-clock"></i> Recent Activations</h3>
+            <button class="btn-refresh" onclick="fetchHistory()">
+                <i class="fas fa-sync"></i>
+            </button>
+        </div>
+        <div id="historyList" class="history-list">
+            <!-- History loaded via JS -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 QuickSMS - Premium Virtual Numbers</p>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
